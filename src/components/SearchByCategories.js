@@ -4,7 +4,7 @@ import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../firebase-config';
 import { Container, Grid } from '@mui/material';
 import PostCard from './PostCard';
-import { CategoryContext } from './CategoryContext';
+import { CategoryContext } from './Context/CategoryContext';
 
 function SearchByCategories() {
   const { active, setActive } = useContext(CategoryContext);

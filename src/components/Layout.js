@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-
+import React, { useContext, useEffect, useState } from 'react';
 import { Drawer, Toolbar, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -15,64 +14,19 @@ import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import WorkIcon from '@mui/icons-material/Work';
-import { CategoryContext } from './CategoryContext';
-import AppBar from '@mui/material/AppBar';
-import { StyleDiv } from '../styles';
-import { styled, alpha } from '@mui/material/styles';
+import { CategoryContext } from './Context/CategoryContext';
 
-import InputBase from '@mui/material/InputBase';
+import { StyleAppBar, StyleDiv, StyleTypography } from '../styles mui';
 
-import SearchIcon from '@mui/icons-material/Search';
+import SearchBar from './SearchBar/SearchBar';
 
 const drawerWidth = 240;
 
 function Layout({ children }) {
   const navigate = useNavigate();
-  const { active, setActive } = useContext(CategoryContext);
+  const { setActive } = useContext(CategoryContext);
 
-  console.log(active);
-
-  const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: '#fff',
-    },
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
-  }));
-
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }));
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: '#000',
-    '& .MuiInputBase-input': {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('sm')]: {
-        width: '12ch',
-        '&:focus': {
-          width: '20ch',
-        },
-      },
-    },
-  }));
+  // console.log(active);
 
   // useEffect(() => {
   //   const handleClickCategory = (category) => {
@@ -118,26 +72,11 @@ function Layout({ children }) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar
-        sx={{
-          width: 'calc(100% - 240px)',
-          backgroundColor: '#F6F6F6',
-          display: 'flex',
-          justifyContent: 'space-around',
-        }}
-      >
+      <StyleAppBar>
         <Toolbar>
-          <Search sx={{ backgroundColor: '#fff' }}>
-            <SearchIconWrapper>
-              <SearchIcon sx={{ color: '#3F0071' }} />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+          <SearchBar />
         </Toolbar>
-      </AppBar>
+      </StyleAppBar>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -150,20 +89,9 @@ function Layout({ children }) {
         variant="permanent"
         anchor="left"
       >
-        <Typography
-          variant="h5"
-          component="h2"
-          color="textSecondary"
-          sx={{
-            display: 'flex',
-            justifyContent: 'start',
-            alignItems: 'center',
-            paddingLeft: 2,
-            paddingTop: 3,
-          }}
-        >
+        <StyleTypography variant="h5" component="h2" color="textSecondary">
           Blog Postes
-        </Typography>
+        </StyleTypography>
 
         <List sx={{ paddingTop: 2 }}>
           {arrayItems.map((item) => (

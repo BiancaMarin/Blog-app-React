@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import Layout from './components/Layout';
 import PostsList from './pages/PostsList';
 import SearchByCategories from './components/SearchByCategories';
-import { CategoryContextProvider } from './components/CategoryContext';
+import { CategoryContextProvider } from './components/Context/CategoryContext';
 
 const theme = createTheme({
   palette: {

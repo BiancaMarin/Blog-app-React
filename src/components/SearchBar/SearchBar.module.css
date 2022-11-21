@@ -1,0 +1,10 @@
+.input {
+  border-radius: 6px;
+  height: 30px;
+  background-color: #cdfcf6;
+  border: none;
+}
+
+.input::placeholder {
+  font-family: 'Poppins';
+}
