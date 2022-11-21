@@ -16,7 +16,6 @@ function PostCard({ post }) {
       <Card>
         <CardHeader
           avatar={<StyleAvatar>{post.category[0].toUpperCase()}</StyleAvatar>}
-          sx={{ color: '#3C4048' }}
           action={
             <IconButton>
               <DeleteOutline />

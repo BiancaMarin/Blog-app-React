@@ -1,4 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { CategoryContext } from './Context/CategoryContext';
 import { Drawer, Toolbar, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -8,23 +10,20 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ViewListRoundedIcon from '@mui/icons-material/ViewListRounded';
 import AddCardRoundedIcon from '@mui/icons-material/AddCardRounded';
-import { useNavigate } from 'react-router-dom';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import WorkIcon from '@mui/icons-material/Work';
-import { CategoryContext } from './Context/CategoryContext';
-
 import { StyleAppBar, StyleDiv, StyleTypography } from '../styles mui';
-
-import SearchBar from './SearchBar/SearchBar';
+import SearchBar from './SearchBar';
 
 const drawerWidth = 240;
 
 function Layout({ children }) {
   const navigate = useNavigate();
   const { setActive } = useContext(CategoryContext);
+  const location = useLocation();
 
   // console.log(active);
 
@@ -74,7 +73,11 @@ function Layout({ children }) {
     <Box sx={{ display: 'flex' }}>
       <StyleAppBar>
         <Toolbar>
-          <SearchBar />
+          {location.pathname === '/' && (
+            <>
+              <SearchBar />
+            </>
+          )}
         </Toolbar>
       </StyleAppBar>
       <Drawer

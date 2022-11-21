@@ -3,26 +3,24 @@ import AddPost from './pages/AddPost';
 import { ThemeProvider, createTheme } from '@mui/material';
 import Layout from './components/Layout';
 import PostsList from './pages/PostsList';
-import SearchByCategories from './components/SearchByCategories';
+import Categories from './pages/Categories';
 import { CategoryContextProvider } from './components/Context/CategoryContext';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#9900F0',
-      dark: '#4700D8',
+      main: '#7900FF',
+      dark: '#590696',
     },
     secondary: {
-      main: '#F900BF',
-      light: '#FF85B3',
+      main: '#37E2D5',
+      light: '#72FFFF',
     },
   },
   typography: {
     fontFamily: 'Poppins',
     fontWeightLight: 400,
     fontWeightRegular: 500,
-    // fontWeightMedium: 600,
-    // fontWeightBold: 700,
   },
 });
 
@@ -35,7 +33,7 @@ function App() {
             <Routes>
               <Route path="/" element={<PostsList />} />
               <Route path="/add" element={<AddPost />} />
-              <Route path="/category" element={<SearchByCategories />} />
+              <Route path="/category" element={<Categories />} />
             </Routes>
           </Layout>
         </CategoryContextProvider>
