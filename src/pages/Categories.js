@@ -7,7 +7,7 @@ import PostCard from '../components/PostCard';
 import { CategoryContext } from '../components/Context/CategoryContext';
 
 function SearchByCategories() {
-  const { active, setActive } = useContext(CategoryContext);
+  const { active } = useContext(CategoryContext);
 
   console.log(active);
   const [posts, setPosts] = useState([]);

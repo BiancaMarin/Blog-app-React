@@ -15,7 +15,7 @@ import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import WorkIcon from '@mui/icons-material/Work';
-import { StyleAppBar, StyleDiv, StyleTypography } from '../styles mui';
+
 import SearchBar from './SearchBar';
 
 const drawerWidth = 240;
@@ -71,15 +71,6 @@ function Layout({ children }) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <StyleAppBar>
-        <Toolbar>
-          {location.pathname === '/' && (
-            <>
-              <SearchBar />
-            </>
-          )}
-        </Toolbar>
-      </StyleAppBar>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -92,10 +83,6 @@ function Layout({ children }) {
         variant="permanent"
         anchor="left"
       >
-        <StyleTypography variant="h5" component="h2" color="textSecondary">
-          Blog Postes
-        </StyleTypography>
-
         <List sx={{ paddingTop: 2 }}>
           {arrayItems.map((item) => (
             <ListItem
@@ -149,10 +136,7 @@ function Layout({ children }) {
           </ListItem>
         </List>
       </Drawer>
-      <div>
-        <StyleDiv />
-        {children}
-      </div>
+      <div>{children}</div>
     </Box>
   );
 }

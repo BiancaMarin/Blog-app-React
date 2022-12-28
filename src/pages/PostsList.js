@@ -8,7 +8,7 @@ function PostsList() {
   const { searchPost } = useContext(PostsContext);
 
   return (
-    <Container maxWidth="l" sx={{ marginTop: 3 }}>
+    <Container maxWidth="l">
       <Grid container spacing={3}>
         {posts
           .filter((post) => {
